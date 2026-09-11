@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+:root {
+  --canvas: #14201f;
+  --surface: #1c2b29;
+  --surface-raised: #233633;
+  --line: #304542;
+  --text: #e5efec;
+  --muted: #91aaa4;
+  --accent: #91c7a9;
+  --accent-soft: #2d4b3f;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--canvas);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.dashboard-shell {
+  display: flex;
+  min-height: 100vh;
+  background: radial-gradient(circle at 90% 0%, #203632 0, var(--canvas) 38%);
+}
+
+.dashboard-menu {
+  width: 264px;
+  flex: 0 0 264px;
+  padding: 32px 20px;
+  border-right: 1px solid var(--line);
+  background: rgba(21, 34, 33, 0.78);
+}
+
+.menu-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 12px 42px;
+  color: var(--text);
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.brand-mark {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid #638d79;
+  border-radius: 9px;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.menu-links {
+  display: grid;
+  gap: 8px;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.menu-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+.menu-link:hover,
+.menu-link.active {
+  color: var(--text);
+  background: var(--accent-soft);
+}
+
+.menu-link.active {
+  box-shadow: inset 3px 0 var(--accent);
+}
+
+.dashboard-content {
+  flex: 1;
+  min-width: 0;
+  width: min(100%, 1180px);
+  padding: 56px clamp(24px, 6vw, 88px);
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 27px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: var(--text);
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.12;
+}
+
+.date-label {
+  padding-bottom: 3px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.dashboard-empty {
+  display: flex;
+  min-height: 430px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--muted);
+}
+
+.empty-line {
+  width: 42px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+.dashboard-empty p,
+.reminder-note {
+  margin: 0;
+}
+
+.reminder-note {
+  color: #6f8d83;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .dashboard-shell {
+    display: block;
+  }
+
+  .dashboard-menu {
+    width: 100%;
+    padding: 20px 16px 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .menu-brand {
+    padding: 0 4px 20px;
+  }
+
+  .menu-links {
+    display: flex;
+    gap: 4px;
+    margin: 0 -4px;
+    overflow-x: auto;
+    padding: 0 4px 4px;
+    scrollbar-width: none;
+  }
+
+  .menu-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-link {
+    flex: 0 0 auto;
+    justify-content: center;
+    width: auto;
+    padding: 10px;
+  }
+
+  .menu-link.active {
+    box-shadow: inset 0 -3px var(--accent);
+  }
+
+  .dashboard-content {
+    padding: 38px 20px;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .dashboard-empty {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 420px) {
+  .dashboard-menu {
+    padding-inline: 12px;
+  }
+
+  .dashboard-content {
+    padding: 32px 16px;
+  }
+
+  .menu-link {
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .date-label {
+    font-size: 13px;
+  }
+}
