@@ -1,15 +1,16 @@
-import { useState } from 'react'
-import { DashboardMenu, type DashboardSection } from '../../components/DashboardMenu'
+import { useState } from 'react';
+import { DashboardMenu, type DashboardSection } from '../../components/DashboardMenu';
+import '../../styles/index.css'; 
 
 const sectionTitles: Record<DashboardSection, string> = {
   today: 'Cosas que hacer hoy',
   calendar: 'Calendario',
   notes: 'Notas',
   projects: 'Proyectos',
-}
+};
 
 export function Dashboard() {
-  const [activeSection, setActiveSection] = useState<DashboardSection>('today')
+  const [activeSection, setActiveSection] = useState<DashboardSection>('today');
 
   return (
     <div className="dashboard-shell">
@@ -32,5 +33,5 @@ export function Dashboard() {
         </section>
       </main>
     </div>
-  )
+  );
 }

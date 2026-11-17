@@ -1,4 +1,4 @@
-import { Dashboard } from '../feactures/dashboard/Dashboard'
+import { Dashboard } from '../feactures/Dashboard/dashboard'
 
 export function DashboardPage() {
   return <Dashboard />
